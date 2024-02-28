@@ -1,0 +1,11 @@
+//aws_access_key = ""
+//aws_secret_key = ""
+myami = "ami-026ebd4cfe2c043b2"
+mykey = "mackey"
+tags = ["postgresql", "nodejs", "react"]
+instancetype = "t2.micro" # react makinesi t2.microda hata verebiliyor t3a.medium ile guncellenebilir
+controlinstancetype = "t3a.medium"
+num = 3
+region = "us-east-1"
+mysecgr = "ansible-project-207-sec-gr"
+user = "clarusway"

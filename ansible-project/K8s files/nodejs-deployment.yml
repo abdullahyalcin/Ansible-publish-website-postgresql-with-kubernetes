@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deploy
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: nodejs
+        image: abdullahyalcin/nodejs:latest
+        ports:
+        - containerPort: 5000
+        # env:
+        # - name: POSTGRES_PASSWORD
+        #   value: Pp123456789
+        # - name: POSTGRES_INITDB_ARGS
+        #   value: "--data-checksums"
+        # - name: POSTGRES_USER
+        #   value: postgres
+        # - name: POSTGRES_DB
+        #   value: clarustodo
+        # - name: DB_HOST
+        #   value: "10.104.202.70"
+        resources: {}

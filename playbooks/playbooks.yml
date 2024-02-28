@@ -1,0 +1,6 @@
+# ansible.builtin.import_playbook: install_docker.yml
+# ansible.builtin.import_playbook: docker_postgre.yml
+# ansible.builtin.import_playbook: docker_nodejs.yml
+# ansible.builtin.import_playbook: docker_react.yml
+
+#you can use tihs file with install_docker.yml

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: postgre
+  name: postgre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgre
+  template:
+    metadata:
+      labels:
+        app: postgre
+    spec:   
+      containers:
+      - image: abdullahyalcin/postgres:latest
+        name: postgre
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_PASSWORD
+          value: Pp123456789
+        # - name: POSTGRES_USER
+        #   value: postgres
+        # - name: POSTGRES_DB
+        #   value: clarustodo
+        # - name: POSTGRES_INITDB_ARGS
+        #   value: "--data-checksums"
+        # - name: PGDATA
+        #   value: /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgre-persistent-volume
+        
+        resources: {}
+
+      volumes:
+        - name: postgre-persistent-volume
+          persistentVolumeClaim:
+            claimName: postgre-pv-claim
